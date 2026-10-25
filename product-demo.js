@@ -446,32 +446,34 @@
     processAudio(token);
   }
 
-  function markdown() {
-    return sample.previewText;
-  }
-  function downloadFile(content, name, mime) {
-    const blob = new Blob([content], { type: mime });
-    const url = URL.createObjectURL(blob);
+  function downloadLink(url, name) {
     const link = document.createElement('a');
     link.href = url;
     link.download = name;
     document.body.append(link);
     link.click();
     link.remove();
+  }
+  function downloadFile(content, name, mime) {
+    const blob = new Blob([content], { type: mime });
+    const url = URL.createObjectURL(blob);
+    downloadLink(url, name);
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   exports.forEach((button) => button.addEventListener('click', () => {
     if (state !== 'done') return;
     const kind = button.dataset.export;
     const name = `晚点聊-${sample.title}`;
-    if (kind === 'md') downloadFile(markdown(), `${name}-开头500字.md`, 'text/markdown;charset=utf-8');
-    if (kind === 'txt') downloadFile(markdown(), `${name}-开头500字.txt`, 'text/plain;charset=utf-8');
-    if (kind === 'json') downloadFile(JSON.stringify({ kind: 'transcript_preview', note: '逐字稿开头500字，非原始API响应。', title: sample.title, source: sample.source, characterCount: sample.previewCharacterCount, text: sample.previewText }, null, 2), `${name}-开头500字.json`, 'application/json;charset=utf-8');
+    if (['md', 'txt', 'json'].includes(kind)) {
+      const path = sample.downloads?.[kind];
+      if (!path) { toast('下载资料未加载，请刷新页面后重试。'); return; }
+      downloadLink(path, `${name}-完整逐字稿.${kind}`);
+    }
     if (kind === 'report') {
-      const report = [`${sample.title}｜原始案例运行记录`, `来源：${sample.source}`, '', `当前演示设置：${configurationLabel()}`, `当前演示请求次数：${plan.length} 次`, '', '以下信息为原始案例的实际运行记录：', '模型：ElevenLabs Scribe v2', '音频时长：01:39:26', '文件大小：91.8 MB', '切段设置：60 分钟，共 2 段', '本次完成用时：2 分 06 秒', '上传用时：16.7 秒', '请求次数：2 次', '', `本次补充 Markdown 的字符数：${sample.fullCharacterCount}（含说话人、时间戳与换行）`, '', '说明：展示页为加速演示，不会调用 API。文本下载包含逐字稿开头500字，不含完整音频或原始 API 响应。'];
+      const report = [`${sample.title}｜原始案例运行记录`, `来源：${sample.source}`, '', `当前演示设置：${configurationLabel()}`, `当前演示请求次数：${plan.length} 次`, '', '以下信息为原始案例的实际运行记录：', '模型：ElevenLabs Scribe v2', '音频时长：01:39:26', '文件大小：91.8 MB', '切段设置：60 分钟，共 2 段', '本次完成用时：2 分 06 秒', '上传用时：16.7 秒', '请求次数：2 次', '', `本次补充 Markdown 的字符数：${sample.fullCharacterCount}（含说话人、时间戳与换行）`, '', '说明：展示页为加速演示，不会调用 API。界面仅预览开头500字；Markdown、TXT 和 JSON 下载均包含完整转录稿。JSON 由完整 Markdown 转换，非原始 API 响应。'];
       downloadFile(report.join('\n'), `${name}-运行记录.txt`, 'text/plain;charset=utf-8');
     }
-    toast(kind === 'report' ? '已开始下载本次运行记录。' : '已开始下载逐字稿前 500 字。');
+    toast(kind === 'report' ? '已开始下载本次运行记录。' : '已开始下载完整逐字稿。');
   }));
   $('#chunkMode').addEventListener('change', changeConfiguration);
   $('#chunkMinutes').addEventListener('input', changeConfiguration);
