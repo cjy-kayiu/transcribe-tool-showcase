@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f8b7f">
+  <meta name="description" content="把长播客、课程和会议录音，转成带时间戳的 Markdown 逐字稿。Transcribe Tool，一个从真实需求出发的独立 AI 产品实践。">
+  <meta property="og:title" content="Transcribe Tool｜把听过的好内容留下来">
+  <meta property="og:description" content="从一段 99 分钟的播客，到一份可以反复使用的逐字稿。体验真实案例，了解产品背后的思考。">
+  <title>Transcribe Tool｜把听过的好内容留下来</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="product-demo.css">
+  <script src="assets/excerpts.js" defer></script>
+  <script src="segment-plan.js" defer></script>
+  <script src="product-demo.js" defer></script>
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M6 7h11v11"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Zm0 0v6h6M8 13h8m-8 4h6"/></symbol>
+    <symbol id="i-audio" viewBox="0 0 24 24"><path d="M4 10v4m4-8v12m4-15v18m4-15v12m4-8v4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V3H3v13h5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5v16M3 3c4-1 7 0 9 2 2-2 5-3 9-2v16c-4-1-7 0-9 2-2-2-5-3-9-2Z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 4H3v14h5l4 4v-4h9ZM7 9h10M7 13h6"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5m10-4a8 8 0 0 0-14-2M5 16a8 8 0 0 0 14 2"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="主导航">
+      <a class="brand" href="#" aria-label="Transcribe Tool 首页"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Transcribe<span class="brand-light"> Tool</span></span></a>
+      <div class="nav-links"><a href="#why">使用场景</a><a href="#demo">示例体验</a><a href="#story">产品迭代</a></div>
+      <a class="nav-cta" href="#demo">看一个真实案例 <svg class="icon"><use href="#i-up-right"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> 给播客听众、学生和知识工作者的转录工具</p>
+        <h1 id="hero-title">听过的好内容，<br><span class="title-accent">值得被留下。</span></h1>
+        <p class="hero-description">把长播客、课程和会议录音，<br class="desktop-break">转成带时间戳的 Markdown 逐字稿。<br>回看重点、整理笔记，也方便交给 AI 继续提问。</p>
+        <div class="hero-actions"><a class="button primary" href="#demo">体验播客示例 <svg class="icon"><use href="#i-arrow"/></svg></a><a class="text-link" href="#story">了解产品设计 <span aria-hidden="true">↘</span></a></div>
+        <p class="hero-note"><span>本地运行</span><span>云端识别</span><span>Markdown 导出</span></p>
+      </div>
+      <div class="hero-art" aria-label="音频转成逐字稿的示意图">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="audio-art">
+          <div class="audio-art-head"><span class="audio-icon"><svg class="icon"><use href="#i-audio"/></svg></span><span>一段值得反复听的对话<small>姚顺雨，来到腾讯300天.mp3</small></span><span class="audio-badge">音频</span></div>
+          <div class="waveform" id="hero-wave" aria-hidden="true"></div>
+          <div class="audio-art-foot"><span>01:39:26</span><span>晚点聊 · LateTalk</span></div>
+        </div>
+        <span class="transform-node" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
+        <div class="paper-art">
+          <div class="paper-head"><span class="file-type">M↓</span><span>姚顺雨，来到腾讯300天.md<small>想回看、想整理，打开文字就能接着用</small></span><svg class="icon paper-check"><use href="#i-check"/></svg></div>
+          <div class="paper-line"><span>00:00:00</span><b>姚顺雨在腾讯里最大的支持者是谁？</b></div>
+          <div class="paper-line"><span>00:00:08</span><b>Martin 啊。</b></div>
+          <div class="fake-text" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="paper-foot"><span><span class="small-dot"></span> 保留说话人和时间戳</span><span>.md</span></div>
+        </div>
+        <span class="floating-note"><span aria-hidden="true">✦</span> 听过，也能找回来。</span>
+      </div>
+      <div class="hero-facts" aria-label="真实案例概览">
+        <div><strong>99<span>分钟</span></strong><p>一整期长播客，转成文字方便回看</p></div>
+        <div><strong>2<span>段音频</span></strong><p>按 60 分钟分段，完成后合并</p></div>
+        <div><strong class="fact-format">Markdown<span>.md</span></strong><p>方便整理笔记，也方便交给 AI</p></div>
+        <a class="fact-source" href="https://www.xiaoyuzhoufm.com/episode/6a6cc745981aef4c4a4dc357" target="_blank" rel="noopener noreferrer">第 176 期 · 姚顺雨，来到腾讯300天<svg class="icon"><use href="#i-up-right"/></svg></a>
+      </div>
+    </section>
+
+    <section class="why-section" id="why" aria-labelledby="why-title">
+      <div class="wrap why-layout">
+        <div><p class="section-kicker">01 / 这些场景，你是不是也遇到过？</p><h2 id="why-title">听的时候很有收获，<br>想用时却找不到。</h2><p class="section-description">如果你常听长播客、需要复习课程，<br>或要整理会议纪要，先把录音变成文字。</p><div class="scenario-friction"><strong>录音一多，还要反复充会员？</strong><p>有些工具需要开通付费会员，而且有转录时长限制。文件一多，还得反复上传、复制和导出，整理起来更费劲。</p></div></div>
+        <div class="need-list">
+          <article><span class="need-number">01</span><div><p class="scenario-role">播客听众</p><h3>听了两小时，想回看其中一句话</h3><p>观点值得留下，却记不起在第几分钟？转成逐字稿，按关键词查找，再结合时间戳回听。</p></div></article>
+          <article><span class="need-number">02</span><div><p class="scenario-role">学生 / 自学者</p><h3>课程跟得上，笔记却记不全</h3><p>英文课、专业课信息量太大？保留课堂逐字稿，课后查术语、补笔记，复习时随时回看。</p></div></article>
+          <article><span class="need-number">03</span><div><p class="scenario-role">职场 / 知识工作者</p><h3>会议结束了，纪要还没开始</h3><p>访谈、例会、项目讨论录了一大段？先拿到逐字稿，再整理会议纪要，或交给 AI 提炼重点。</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section wrap" id="demo" aria-labelledby="demo-title">
+      <div class="section-heading"><div><p class="section-kicker">02 / 用一段真实播客，体验完整流程</p><h2 id="demo-title">一段长播客，<br>怎样成为你的逐字稿？</h2></div><div class="pd-section-aside"><p>本期示例：晚点聊第 176 期<br>《姚顺雨，来到腾讯300天》</p><a class="source-link" href="https://www.xiaoyuzhoufm.com/episode/6a6cc745981aef4c4a4dc357" target="_blank" rel="noopener noreferrer">收听原节目 <svg class="icon"><use href="#i-up-right"/></svg></a></div></div>
+      <div class="product-demo" id="product-demo">
+        <div class="pd-toolbar"><div class="pd-app-brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><div><strong>Transcribe Tool</strong><span>录音转文字，整理更省事</span></div></div><div class="pd-toolbar-right"><span class="pd-mode"><span class="small-dot"></span> 交互演示</span><button type="button" class="pd-tour-button" id="play-tour"><svg class="icon"><use href="#i-play"/></svg><span>播放完整流程</span></button></div></div>
+        <div class="pd-walkthrough"><ol aria-label="演示流程"><li data-tour-step="0" class="active"><span>1</span>准备音频</li><li data-tour-step="1"><span>2</span>补充词库</li><li data-tour-step="2"><span>3</span><em id="processing-step-label">分段转录</em></li><li data-tour-step="3"><span>4</span>保存文本</li></ol><span class="pd-walkthrough-note" id="tour-caption" role="status">点击播放，或在下方自己试一试。</span></div>
+        <div class="pd-grid">
+          <form class="pd-panel pd-controls" id="transcribeForm">
+            <div class="pd-panel-head"><h3>音频来源</h3><span>本次案例配置</span></div>
+            <div class="pd-input-scroll" id="input-scroll">
+              <div class="pd-key-row"><label class="pd-field" for="apiKey"><span>API 密钥 <small>演示已配置</small></span><input type="password" id="apiKey" value="demo-preview-not-a-real-api-key" readonly autocomplete="off" aria-describedby="api-key-note"></label><p class="pd-hint" id="api-key-note">无需填写真实密钥，本页不会调用 API。</p></div>
+              <label class="pd-field" for="providerSelect"><span>转录服务</span><select id="providerSelect"><option>ElevenLabs Scribe</option></select></label>
+              <p class="pd-provider-note"><svg class="icon"><use href="#i-check"/></svg><span>支持说话人区分和时间戳，也可以补充人名与专业词汇。</span></p>
+              <label class="pd-field" for="modelId"><span>语音识别模型</span><select id="modelId"><option value="scribe_v2">Scribe v2</option></select></label>
+              <label class="pd-field" for="outputDir"><span>保存位置</span><div class="pd-input-with-icon"><svg class="icon"><use href="#i-file"/></svg><input type="text" id="outputDir" value="转录结果" readonly></div></label>
+              <div class="pd-source-block" id="source-block">
+                <button class="pd-dropzone" id="sample-file" type="button" aria-expanded="false" aria-controls="sample-file-details"><span class="pd-file-icon"><svg class="icon"><use href="#i-audio"/></svg></span><strong>晚点聊 · 姚顺雨，来到腾讯300天</strong><span>MP3 · 99 分钟 · 本次示例音频</span><span class="pd-file-ready"><svg class="icon"><use href="#i-check"/></svg> 音频已就绪</span></button>
+                <div class="pd-file-details" id="sample-file-details" hidden><span>晚点聊 - 姚顺雨，来到腾讯300天.mp3</span><span>支持批量拖入多个音频，也可以选择文件或填写本机路径。</span></div>
+                <div class="pd-source-progress"><div><span id="source-progress-fill"></span></div><span id="source-progress-label">100%</span><span id="source-progress-note">音频已准备好</span></div>
+                <div class="pd-divider">或使用本机路径</div>
+                <label class="pd-field" for="audioPath"><span>音频路径 <small>示例</small></span><input type="text" id="audioPath" value="D:\录音\晚点聊 - 姚顺雨，来到腾讯300天.mp3" readonly></label>
+                <p class="pd-source-info"><svg class="icon"><use href="#i-audio"/></svg> 01:39:26 <span>·</span> 91.8 MB <span>·</span> MP3</p>
+              </div>
+              <details class="pd-fold" id="cacheSettings"><summary><span>缓存管理</span><svg class="icon"><use href="#i-chevron"/></svg></summary><div class="pd-fold-body"><p class="pd-hint">上传音频和分段文件会暂存，方便中断后继续。本页仅演示，不会读取你的缓存。</p></div></details>
+              <details class="pd-fold" id="paramSettings"><summary><span>语音识别设置</span><svg class="icon"><use href="#i-chevron"/></svg></summary><div class="pd-fold-body">
+                <label class="pd-check"><input id="diarize" type="checkbox" checked><span>区分不同说话人</span></label>
+                <div class="pd-fields-two"><label class="pd-field" for="numSpeakers"><span>说话人数</span><input id="numSpeakers" type="number" min="1" max="32" placeholder="自动识别"></label><label class="pd-field" for="languageCode"><span>音频语言</span><select id="languageCode"><option value="auto">自动识别</option><option value="zh">中文</option><option value="en">英语</option></select></label></div>
+                <label class="pd-field" id="keyterms-field" for="keyterms"><span>人名与专业词汇 <small>词库</small></span><textarea id="keyterms" rows="2">高洪浩, 姚顺雨, 曼祺, 刘炽平, 混元</textarea><em>提前补充，帮助识别不常见的人名和术语。</em></label>
+                <label class="pd-field" for="promptPrefix"><span>补充转录要求 <small>可选</small></span><textarea id="promptPrefix" rows="2" placeholder="使用音频聊天模型时可补充转录要求；本次 Scribe 示例无需填写。" readonly></textarea></label>
+                <label class="pd-field" id="description-field" for="keywordSource"><span>音频简介 / 文字说明</span><textarea id="keywordSource" rows="5" aria-describedby="description-note"></textarea><em id="description-note">根据本期播客介绍摘录、整理，可用于提取关键词。</em></label>
+                <button class="pd-small-button" id="extractKeytermsBtn" type="button"><svg class="icon"><use href="#i-search"/></svg> 从简介提取关键词</button><div class="pd-keyword-chips" id="keywordOutput" hidden></div>
+              </div></details>
+              <details class="pd-fold" id="chunkSettings"><summary><span>长音频设置</span><svg class="icon"><use href="#i-chevron"/></svg></summary><div class="pd-fold-body"><label class="pd-field" for="chunkMode"><span>转录方式</span><select id="chunkMode"><option value="single">整段转录（不切分）</option><option value="chunk" selected>自动分段（按时长处理）</option></select></label><div id="chunkOptions"><label class="pd-field" for="chunkMinutes"><span>每段时长 <small>分钟</small></span><div class="pd-minute-input"><input type="number" id="chunkMinutes" value="60" min="5" max="60" step="1" required aria-describedby="chunk-plan-hint"><span aria-hidden="true">分钟</span></div></label></div><p class="pd-hint pd-chunk-hint" id="chunk-plan-hint" role="status">按 60 分钟分成 2 段，逐段保存后合并。</p></div></details>
+            </div>
+            <div class="pd-control-footer"><div class="pd-button-row"><button class="pd-start" type="submit" id="submitBtn"><svg class="icon"><use href="#i-play"/></svg><span>开始转录</span></button><button class="pd-resume" type="button" id="resumeBtn" disabled>继续转录</button><button class="pd-stop" type="button" id="cancelBtn" disabled>停止转录</button></div><p id="control-hint">演示已加速，可随时停止、继续。</p></div>
+          </form>
+          <section class="pd-panel pd-results" id="result-panel" aria-labelledby="result-title">
+            <div class="pd-panel-head"><h3 id="result-title">转录进度</h3><span class="pd-job-status" id="result-status" role="status">等待开始</span></div>
+            <div class="pd-result-scroll">
+              <div class="pd-progress-area"><div class="pd-main-progress" id="progress-track" role="progressbar" aria-label="转录演示进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress-fill"></span></div><div class="pd-progress-description"><strong id="progress-percent">0%</strong><span id="progress-label">音频已就绪，等待开始</span></div></div>
+              <details class="pd-segments" id="segmentBox" open><summary><span>分段进度 <small id="segment-count">0 / 2 段完成</small></span><svg class="icon"><use href="#i-chevron"/></svg></summary><div class="pd-segment-list" id="segment-list"></div></details>
+              <div class="pd-downloads" aria-label="导出示例结果"><button type="button" data-export="md" disabled><svg class="icon"><use href="#i-download"/></svg> 下载 Markdown</button><button type="button" data-export="json" disabled>下载 JSON</button><button type="button" data-export="txt" disabled>下载 TXT</button><button type="button" data-export="report" disabled>下载运行/错误报告</button></div><p class="pd-export-note">演示文件包含逐字稿开头 500 字。</p>
+              <div class="pd-metrics" aria-label="本次案例信息"><div><span>音频时长</span><strong>01:39:26</strong></div><div><span>文件大小</span><strong>91.8 <small>MB</small></strong></div><div><span>逐字稿字符数</span><strong id="charsValue">—</strong></div><div><span id="elapsedLabel">演示用时</span><strong id="elapsedValue">—</strong></div><div><span>上传用时</span><strong id="uploadValue">—</strong></div><div><span>转录请求</span><strong id="requestsValue">—</strong></div></div>
+              <details class="pd-fold pd-log-fold" id="logBox"><summary><span>运行日志 <small>演示过程</small></span><svg class="icon"><use href="#i-chevron"/></svg></summary><div class="pd-fold-body"><pre id="logText">等待开始转录。</pre></div></details>
+              <div class="pd-preview-heading"><h4>逐字稿预览</h4><span id="preview-badge">等待生成</span></div>
+              <div class="pd-preview-empty" id="empty-result"><svg class="icon"><use href="#i-file"/></svg><h4>逐字稿将在这里显示</h4><p id="empty-message">点击「开始转录」，查看这期播客的文字预览。</p><div class="pd-skeleton" aria-hidden="true"><i></i><i></i><i></i></div></div>
+              <div id="transcript-result" hidden><div class="pd-transcript" id="preview" role="region" tabindex="0" aria-label="逐字稿开头500字"></div></div>
+            </div>
+          </section>
+        </div>
+        <div class="pd-demo-footnote"><span>演示回放本次案例，不上传文件或调用转录 API。</span><span id="case-record-note">原始案例：60 分钟 / 段，共 2 段，运行用时 2 分 06 秒。演示已加速。</span></div>
+      </div>
+      <div class="demo-caption"><span>支持批量转录、说话人识别和长音频分段处理。</span><span>本地运行 · 云端识别 · 结果保存到本地</span></div>
+    </section>
+
+    <section class="uses-section wrap" aria-labelledby="uses-title">
+      <div class="uses-heading"><p class="section-kicker">录音变成文字，接着做你想做的事</p><h2 id="uses-title">转成文字之后，还能这样用。</h2><p>搭配你常用的工具，继续整理、提问和查找。</p></div>
+      <div class="uses-grid">
+        <article><svg class="icon"><use href="#i-chat"/></svg><h3>交给 AI，继续问</h3><p>把逐字稿交给 NotebookLM、GPT 等工具，追问细节、梳理观点。</p></article>
+        <article><svg class="icon"><use href="#i-grid"/></svg><h3>按主题，存进资料库</h3><p>把播客、课程和访谈按主题归档，积累自己的知识资料。</p></article>
+        <article><svg class="icon"><use href="#i-search"/></svg><h3>想起时，搜得到</h3><p>用本地检索工具搜索关键词，找到相关段落，再按时间戳回听。</p></article>
+        <article><svg class="icon"><use href="#i-book"/></svg><h3>做笔记，有出处</h3><p>摘录内容、整理学习笔记，为后续思考与写作准备素材。</p></article>
+      </div>
+      <p class="uses-note">下载后的逐字稿，可搭配你常用的笔记、检索和 AI 工具使用。</p>
+    </section>
+
+    <section class="story-section" id="story" aria-labelledby="story-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="section-kicker">03 / 产品背后的设计与迭代</p><h2 id="story-title">围绕真实使用，<br>把每一步打磨好。</h2></div><div class="story-role"><span class="role-dot"></span><div>个人独立项目<small>需求梳理 · 产品设计 · 借助 Codex 开发与调试</small></div></div></div>
+        <div class="story-grid">
+          <article><span class="story-index">01</span><h3>多个录音，一次加入队列</h3><p>播客、课程和会议录音可以一起加入队列，按顺序转录，统一输出 Markdown，减少反复操作。</p><span class="story-tag">从使用场景定义功能</span></article>
+          <article><span class="story-index">02</span><h3>比较实际结果，再选择模型</h3><p>以飞书妙记和千问为参照，借助 AI 对比不同 API 的转录结果，综合考虑文字错误、内容完整性、术语和成本，再选择方案。</p><span class="story-tag">从实际结果做选择</span></article>
+          <article><span class="story-index">03</span><h3>长录音按需分段，中断后接着转</h3><p>支持整段转录，也可自定义每段时长。分段转录时，已完成的结果自动保存；中断后继续处理未完成部分，减少从头重来的麻烦。</p><span class="story-tag">分段保存 · 中断续转</span></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer wrap"><div><a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Transcribe<span class="brand-light"> Tool</span></span></a><p>把听过的好内容，留给以后的自己。</p></div><div class="footer-links"><span>独立 AI 产品实践</span><a href="#demo">再看一遍示例 <span aria-hidden="true">↑</span></a></div></footer>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <noscript><p class="noscript-note">此页面的示例交互需要 JavaScript。你仍可阅读项目介绍，并打开原节目链接。</p></noscript>
+</body>
+</html>
